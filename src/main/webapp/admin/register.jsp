@@ -11,10 +11,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="${path}/reg">
-		<input name="user.name" type="text"> <br> 
-		<input name="user.account" type="text"><br>
-		<input name="user.password" type="text"><br> 
+	<form action="${path}/admin1/reg">
+		<input name="name" type="text"> <br> 
+		<input name="account" type="text"><br>
+		<input name="password" type="text"><br> 
 		<input name="提交" type="submit">
 	</form>
 </body>

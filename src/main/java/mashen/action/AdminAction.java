@@ -10,7 +10,7 @@ import mashen.model.AdminUser;
 import mashen.service.AdminService;
 
 @Controller
-@RequestMapping("admin")
+@RequestMapping("admin1")
 public class AdminAction {
 	@Resource(name = "adminService")
 	private AdminService as;
@@ -18,8 +18,7 @@ public class AdminAction {
 
 	@RequestMapping("/reg")
 	public ModelAndView reg(AdminUser adminuser) {
-		
-		adminuser.setName("111");
+		System.out.println(adminuser.getName());
 		as.AdminAdd(adminuser);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/register");
