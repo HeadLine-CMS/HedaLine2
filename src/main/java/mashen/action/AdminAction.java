@@ -1,5 +1,7 @@
 package mashen.action;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -18,8 +20,25 @@ public class AdminAction {
 
 	@RequestMapping("/reg")
 	public ModelAndView reg(AdminUser adminuser) {
-		System.out.println(adminuser.getName());
 		as.AdminAdd(adminuser);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/register");
+		return mv;
+	}
+	@RequestMapping("/update")
+	public ModelAndView update(AdminUser adminuser) {
+		as.AdminUpdate(adminuser);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/register");
+		return mv;
+	}
+	@RequestMapping("/login")
+	public ModelAndView login(String name) {
+//		name="33";
+		List<AdminUser> l=as.AdminSelect(name);
+		for (AdminUser a : l) {
+			System.out.println(a.getPassword()+"="+a.getPassword());
+		}
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/register");
 		return mv;
