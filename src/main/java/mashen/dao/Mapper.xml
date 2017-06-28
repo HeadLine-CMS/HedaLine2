@@ -4,13 +4,14 @@
 <mapper namespace="mashen.dao.UserDao">
 
 	<!-- 结果集的映射，将数据库中的字段映射到Model对象中 -->
-	<!-- <resultMap id="UserResultMap" type="com.mashen.model.User"> <result 
+	<!-- <resultMap id="UserResultMap" type="mashen.admin.model.AdminUser"> <result 
 		property="empno" column="EMPNO" jdbcType="INTEGER" javaType="int" /> <result 
 		property="ename" column="ENAME" jdbcType="VARCHAR" javaType="string" /> <result 
 		property="pw" column="PW" jdbcType="VARCHAR" javaType="string" /> </resultMap> -->
 	<!-- 使用insert标签，插入emp对象 -->
-	<insert id="add" >
-		insert into user (name,pw) values(#{name},#{pw})
+	
+	<insert id="add" parameterType="mashen.model.User">
+		insert into admin (name,password) values(#{name},#{password})
 	</insert>
 
 </mapper>

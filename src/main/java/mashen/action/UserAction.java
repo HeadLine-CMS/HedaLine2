@@ -18,8 +18,9 @@ public class UserAction {
 	public String add() {
 		User user = new User();
 		user.setName("cc");
-		user.setPw("11");
+		user.setPassword("11");
+//		int a=1/0;
 		us.add(user);
-		return "index";
+		return "user/index";
 	}
 }
