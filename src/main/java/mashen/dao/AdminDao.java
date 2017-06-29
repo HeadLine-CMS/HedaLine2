@@ -11,4 +11,5 @@ public interface AdminDao {
 	public void AdminAdd(AdminUser adminuser);
 	public void AdminUpdate(AdminUser adminuser);
 	public List<AdminUser> AdminSelect(String name);
+
 }

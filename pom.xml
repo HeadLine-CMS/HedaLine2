@@ -26,7 +26,7 @@
 			<artifactId>spring-context</artifactId>
 			<version>4.1.9.RELEASE</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -67,6 +67,15 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>4.1.9.RELEASE</version>
 		</dependency>
+		<!-- jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+
+
 
 	</dependencies>
 	<build>
