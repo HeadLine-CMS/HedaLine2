@@ -23,18 +23,17 @@ public class UserService implements IUSerService {
 	}
 
 	public int update(User user) {
-
 		return dao.update(user);
 	}
 
-	public List<User> selectByName(String name) {
+	public List<User> selectByAccount(String account) {
 
-		return dao.selectByName(name);
+		return dao.selectByAccount(account);
 	}
 
-	public boolean check(User user) {
-
-		return false;
+	public User check(String account) {
+		
+		return dao.check(account);
 	}
 
 	public List<User> selectAll() {

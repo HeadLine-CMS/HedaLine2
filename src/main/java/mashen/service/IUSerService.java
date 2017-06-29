@@ -16,10 +16,10 @@ public interface IUSerService {
 	public int update(User user);
 
 	// 查询数据
-	public List<User> selectByName(String name);
+	public List<User> selectByAccount(String account);
 	public List<User> selectAll();
 
 	// 注册及登陆验证
-	public boolean check(User user);
+	public User check(String account);;
 
 }
