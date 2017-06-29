@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mashen.dao.InfArticleDao">
+
+	<!-- 结果集的映射，将数据库中的字段映射到Model对象中 -->
+	<!-- <resultMap id="UserResultMap" type="mashen.admin.model.AdminUser"> <result 
+		property="empno" column="EMPNO" jdbcType="INTEGER" javaType="int" /> <result 
+		property="ename" column="ENAME" jdbcType="VARCHAR" javaType="string" /> <result 
+		property="pw" column="PW" jdbcType="VARCHAR" javaType="string" /> </resultMap> -->
+	<!-- 使用insert标签，插入emp对象 -->
+	
+	<insert id="addArticle" parameterType="mashen.model.Article">
+		insert into article (title,content) values(#{title},#{content})
+	</insert>
+	
+	<delete id="deleteArticle" parameterType="mashen.model.Article">
+		delete from article where id = #{id}
+	</delete>
+	
+	<update id="updateArticle" parameterType="mashen.model.Article">
+		update article set title=#{title},content=#{content},genre=#{genre} where id = #{id}
+	</update>
+	
+	<select id="selectByTitle" parameterType="String" resultType="mashen.model.Article">
+		select * from article 
+		<if test="value!=null">
+			where title like '%${value}%'
+		</if>
+	</select>
+	
+</mapper>
