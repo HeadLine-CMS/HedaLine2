@@ -13,7 +13,7 @@ public class Article {
 	private String headImg;
 	private String genre;
 	private Data created;
-	private int check;
+	private int checkgg;
 	
 	public int getId() {
 		return id;
@@ -69,18 +69,19 @@ public class Article {
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-	public int getCheck() {
-		return check;
-	}
-	public void setCheck(int check) {
-		this.check = check;
-	}
+
 	
+	public int getCheckgg() {
+		return checkgg;
+	}
+	public void setCheckgg(int checkgg) {
+		this.checkgg = checkgg;
+	}
 	@Override
 	public String toString() {
 		return "Article [id=" + id + ", count=" + count + ", title=" + title + ", content=" + content + ", headName="
 				+ headName + ", titleImg=" + titleImg + ", headImg=" + headImg + ", genre=" + genre + ", created="
-				+ created + ", check=" + check + "]";
+				+ created + ", check=" + checkgg + "]";
 	}
 	
 	

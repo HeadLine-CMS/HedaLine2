@@ -43,6 +43,10 @@ public class ArticleService implements InfArticleService {
 		List<Article> list = dao.selectByTitle(title);
 		return list;
 	}
+
+	public List<Article> selectArticleByCheck() {
+		return dao.selectArticleByCheck();
+	}
 	
 
 }

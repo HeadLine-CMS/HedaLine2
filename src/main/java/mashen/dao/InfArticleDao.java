@@ -16,4 +16,5 @@ public interface InfArticleDao {
 	public void updateArticle(Article article);
 	
 	public List<Article> selectByTitle(String title);
+	public List<Article> selectArticleByCheck();
 }
