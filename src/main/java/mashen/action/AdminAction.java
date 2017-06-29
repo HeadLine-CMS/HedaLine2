@@ -25,7 +25,12 @@ public class AdminAction {
 
 	@RequestMapping("/register")
 	public ModelAndView reg(AdminUser adminuser) {
-		as.AdminAdd(adminuser);
+		List<AdminUser> l=as.AdminSelect("a");
+		for (AdminUser g : l) {
+			System.out.println(g.getName()+"===");
+		}
+		System.out.println("l"+"222");
+//		as.AdminAdd(adminuser);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/register");
 		return mv;
@@ -35,36 +40,32 @@ public class AdminAction {
 	public ModelAndView update(AdminUser adminuser) {
 		as.AdminUpdate(adminuser);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("admin/register");
+		System.out.println("11");
+		mv.setViewName("admin/login");
 		return mv;
 	}
 
 	@RequestMapping("/login")
-	public ModelAndView login(HttpServletRequest req,AdminUser user) {
+	public ModelAndView login(HttpServletRequest req, AdminUser user) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/register");
+		String name = null;
+		String pw = null;
+		List<AdminUser> l = null;
 		if (user.getName() != "" || user.getPassword() != "") {
-			List<AdminUser> l = as.AdminSelect(user.getName());
-			String name = null;
-			String pw = null;
+			l = as.AdminSelect(user.getName());
 			for (AdminUser a : l) {
 				name = a.getName();
 				pw = a.getPassword();
 			}
-			System.out.println(name + "/" + pw);
-			if (user.getName().equals(name) && user.getPassword().equals(pw)) {
-				//req.set
-				ModelAndView mv = new ModelAndView();
-				mv.setViewName("admin/register");
-				mv.addObject("success", "成功");
-				return mv;
-			} else {
-				ModelAndView mv = new ModelAndView();
-				mv.setViewName("admin/register");
-				mv.addObject("success", "账号或者密码错误！");
-				return mv;
-			}
+		}
+		if (user.getName().equals(name) && user.getPassword().equals(pw)) {
+			mv.addObject("success", "成功");
+			req.getSession().setAttribute("name", name);
+			req.getSession().setAttribute("admin", l);
+			return mv;
 		} else {
-			ModelAndView mv = new ModelAndView();
-			mv.setViewName("admin/register");
+			mv.addObject("success", "账号或者密码错误！");
 			return mv;
 		}
 	}
