@@ -36,5 +36,9 @@
 		resultType="mashen.model.Article">
 		select * from article where checkgg=0
 	</select>
+	<update id="updateArticleByCheck" parameterType="String">
+		update article set
+		checkgg=1 where title=#{title}
+	</update>
 
 </mapper>

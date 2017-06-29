@@ -47,12 +47,20 @@ public class AdminAction {
 		mv.setViewName("admin/register");
 		return mv;
 	}
-	@RequestMapping("/article")
+	@RequestMapping("/selectArticle")
 	public ModelAndView selectArticle() {
 		List<Article> l=service.selectArticleByCheck();
 		for (Article a : l) {
 			System.out.println(a.getTitle());
 		}
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/register");
+		return mv;
+	}
+	@RequestMapping("/updateArticle")
+	public ModelAndView updateArticle(String title) {
+		title="ttt";
+		service.updateArticleByCheck(title);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/register");
 		return mv;
