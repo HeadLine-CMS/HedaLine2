@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,10 +51,10 @@
 <div class="page-content">
     <div class="page-header">
         <h1>
-            头条管理
+            文章管理
             <small>
                 <i class="icon-double-angle-right"></i>
-                头条管理
+                文章管理
             </small>
         </h1>
     </div><!-- /.page-header -->
@@ -73,16 +75,15 @@
                                         <span class="lbl"></span>
                                     </label>
                                 </th>
-                                <th>游客ID</th>
-                                <th>游客账号</th>
-                                <th>游客密码</th>
-                                <th class="hidden-480">游客名称</th>
-
+                                <th>文章ID</th>
+                                <th>文章标题</th>
+                                <th>创建时间</th>
+                                <th class="hidden-480">作者</th>
+                                <th>浏览次数</th>
                                 <th>
                                     <i class="icon-time bigger-110 hidden-480"></i>
-                                    创建时间
+                                    审核状态
                                 </th>
-
                                 <th class="hidden-480">操作</th>
 
                             </tr>
@@ -103,10 +104,9 @@
                                 <td>
                                     <a href="#">ace.com</a>
                                 </td>
-
+                                <td>$45</td>
                                 <td class="hidden-480">3,330</td>
                                 <td>Feb 12</td>
-
 
                                 <td class="hidden-480">
                                     <span class="label label-sm label-warning">Expiring</span>
@@ -114,21 +114,16 @@
 
                                 <td>
                                     <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
-                                        <button class="btn btn-xs btn-success">
-                                            <i class="icon-ok bigger-120"></i>
-                                        </button>
-
+                                        <a href="contentUpdate.html">
                                         <button class="btn btn-xs btn-info">
                                             <i class="icon-edit bigger-120"></i>
-                                        </button>
-
+                                        </button></a>
+                                        <a href="#">
                                         <button class="btn btn-xs btn-danger">
                                             <i class="icon-trash bigger-120"></i>
                                         </button>
+                                        </a>
 
-                                        <button class="btn btn-xs btn-warning">
-                                            <i class="icon-flag bigger-120"></i>
-                                        </button>
                                     </div>
 
                                     <div class="visible-xs visible-sm hidden-md hidden-lg">

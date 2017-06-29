@@ -24,9 +24,20 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>kk</display-name>
+		<servlet-name>kk</servlet-name>
+		<servlet-class>mashen.model.kk</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>kk</servlet-name>
+		<url-pattern>/kk</url-pattern>
 	</servlet-mapping>
 
 

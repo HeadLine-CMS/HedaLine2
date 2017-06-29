@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,10 +51,10 @@
 <div class="page-content">
     <div class="page-header">
         <h1>
-            文章管理
+            头条管理
             <small>
                 <i class="icon-double-angle-right"></i>
-                文章管理
+                头条管理
             </small>
         </h1>
     </div><!-- /.page-header -->
@@ -73,14 +75,18 @@
                                         <span class="lbl"></span>
                                     </label>
                                 </th>
-                                <th>文章ID</th>
-                                <th>文章标题</th>
-                                <th>创建时间</th>
-                                <th class="hidden-480">作者</th>
-                                <th>浏览次数</th>
+                                <th>头条号ID</th>
+                                <th>头条号账号</th>
+                                <th>头条号密码</th>
+                                <th class="hidden-480">头条号名称</th>
+
                                 <th>
                                     <i class="icon-time bigger-110 hidden-480"></i>
-                                    审核状态
+                                    头条号邮箱
+                                </th>
+                                <th>
+                                    <i class="icon-time bigger-110 hidden-480"></i>
+                                    创建时间
                                 </th>
                                 <th class="hidden-480">操作</th>
 
@@ -106,21 +112,21 @@
                                 <td class="hidden-480">3,330</td>
                                 <td>Feb 12</td>
 
+
                                 <td class="hidden-480">
                                     <span class="label label-sm label-warning">Expiring</span>
                                 </td>
 
                                 <td>
                                     <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
-                                        <a href="contentUpdate.html">
+                                        <a href="toutiaoUpdate.html">
                                         <button class="btn btn-xs btn-info">
                                             <i class="icon-edit bigger-120"></i>
                                         </button></a>
                                         <a href="#">
                                         <button class="btn btn-xs btn-danger">
                                             <i class="icon-trash bigger-120"></i>
-                                        </button>
-                                        </a>
+                                        </button></a>
 
                                     </div>
 
