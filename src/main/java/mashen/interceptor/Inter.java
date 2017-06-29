@@ -10,6 +10,9 @@ public class Inter extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		request.getServletContext().setAttribute("path",request.getContextPath());
 		System.out.println("初始化");
 		return true;
 	}
