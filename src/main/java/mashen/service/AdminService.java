@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 
 import mashen.dao.AdminDao;
 import mashen.model.AdminUser;
-import mashen.model.Article;
-
 @Service
 public class AdminService {
 	@Resource(name="adminDao")

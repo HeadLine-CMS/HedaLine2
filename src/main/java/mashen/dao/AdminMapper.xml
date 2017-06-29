@@ -17,10 +17,11 @@
 	</insert>
 	<update id="AdminUpdate" parameterType="mashen.model.AdminUser">
 		update admin set
-		name=#{name},password=#{password},account=#{account} where
-		id=#{id}
+		password=#{password},account=#{account} where
+		name=#{name}
 	</update>
 	<select id="AdminSelect" parameterType="java.lang.String" resultType="mashen.model.AdminUser">
 		select * from admin where name=#{name}
+	
 	</select>
 </mapper>

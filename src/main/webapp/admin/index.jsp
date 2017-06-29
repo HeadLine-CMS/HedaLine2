@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -180,13 +182,6 @@
 						</li>
 
 						<li>
-							<a href="typography.html">
-								<i class="icon-text-width"></i>
-								<span class="menu-text"> 文字排版 </span>
-							</a>
-						</li>
-
-						<li>
 							<a href="#" class="dropdown-toggle" onclick="content();">
 								<i class="icon-desktop"></i>
 								<span class="menu-text"> 文章管理 </span>
@@ -278,70 +273,6 @@
 							</ul>
 						</li>
 
-						<li>
-							<a href="#" class="dropdown-toggle" onclick="user();">
-								<i class="icon-edit"></i>
-								<span class="menu-text"> 游客管理 </span>
-
-								<b class="arrow icon-angle-down"></b>
-							</a>
-
-							<ul class="submenu">
-								<li>
-									<a href="form-elements.html">
-										<i class="icon-double-angle-right"></i>
-										新增游客
-									</a>
-								</li>
-
-								<li>
-									<a href="form-wizard.html">
-										<i class="icon-double-angle-right"></i>
-										删除游客
-									</a>
-								</li>
-
-								<li>
-									<a href="form-wizard.html">
-										<i class="icon-double-angle-right"></i>
-										修改游客
-									</a>
-								</li>
-
-							</ul>
-						</li>
-
-
-
-						<li>
-							<a href="#" class="dropdown-toggle">
-								<i class="icon-file-alt"></i>
-
-								<span class="menu-text">
-									其他页面
-									<span class="badge badge-primary ">5</span>
-								</span>
-
-								<b class="arrow icon-angle-down"></b>
-							</a>
-
-							<ul class="submenu">
-
-								<li>
-									<a href="error-404.html">
-										<i class="icon-double-angle-right"></i>
-										404错误页面
-									</a>
-								</li>
-
-								<li>
-									<a href="error-500.html">
-										<i class="icon-double-angle-right"></i>
-										500错误页面
-									</a>
-								</li>
-							</ul>
-						</li>
 					</ul><!-- /.nav-list -->
 
 					<div class="sidebar-collapse" id="sidebar-collapse">

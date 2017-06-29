@@ -13,5 +13,6 @@ public interface InfArticleService {
 	
 	public List<Article> selectByTitle(String title);
 	public List<Article> selectArticleByCheck();
+	public void updateArticleByCheck(String title);
 
 }

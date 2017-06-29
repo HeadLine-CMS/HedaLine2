@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import mashen.model.AdminUser;
-import mashen.model.Article;
 
 @Repository
 public interface AdminDao {

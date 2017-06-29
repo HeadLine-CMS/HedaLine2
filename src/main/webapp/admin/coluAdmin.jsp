@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,10 +51,10 @@
 <div class="page-content">
     <div class="page-header">
         <h1>
-            广告管理
+            轮播图管理
             <small>
                 <i class="icon-double-angle-right"></i>
-                广告管理
+                轮播图管理
             </small>
         </h1>
     </div><!-- /.page-header -->
@@ -73,8 +75,8 @@
                                         <span class="lbl"></span>
                                     </label>
                                 </th>
-                                <th>广告ID</th>
-                                <th>广告连接地址</th>
+                                <th>轮播图ID</th>
+                                <th>轮播图字段</th>
                                 <th class="hidden-480">创建时间</th>
 
                                 <th class="hidden-480">操作</th>
@@ -99,13 +101,15 @@
                                 </td>
 
 
+
                                 <td class="hidden-480">
                                     <span class="label label-sm label-warning">Expiring</span>
                                 </td>
 
                                 <td>
                                     <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
-                                        <a href="advUpdate.html">
+
+                                        <a href="coluUpdate.html">
                                         <button class="btn btn-xs btn-info">
                                             <i class="icon-edit bigger-120"></i>
                                         </button>
@@ -113,7 +117,9 @@
                                         <a href="#">
                                         <button class="btn btn-xs btn-danger">
                                             <i class="icon-trash bigger-120"></i>
-                                        </button></a>
+                                        </button>
+                                        </a>
+
                                     </div>
 
                                     <div class="visible-xs visible-sm hidden-md hidden-lg">
