@@ -227,7 +227,9 @@ input, button {
 					for="tab-1" class="tab">登录</label> <input id="tab-2" type="radio"
 					name="tab" class="sign-up"><label for="tab-2" class="tab">注册</label>
 				<div class="login-form">
-				<div align="center"><font color="red"> ${success}</font></div>
+					<div align="center">
+						<font color="red"> ${success}</font>
+					</div>
 					<form action="${path}/admin1/login" method="post">
 						<div class="sign-in-htm">
 							<div class="group">
@@ -261,11 +263,6 @@ input, button {
 									name="password" id="pass" type="password" class="input"
 									data-type="password">
 							</div>
-							<div class="group">
-								<label for="pass" class="label">确认密码</label> <input id="pass"
-									type="password" class="input" data-type="password">
-							</div>
-
 							<div class="group">
 								<input type="submit" class="button" value="注册">
 							</div>

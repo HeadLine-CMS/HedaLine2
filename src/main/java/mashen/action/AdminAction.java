@@ -21,18 +21,18 @@ public class AdminAction {
 	private InfArticleService service;
 	@Resource(name = "adminService")
 	private AdminService as;
-	// private AdminUser adminuser = new AdminUser();
 
 	@RequestMapping("/register")
 	public ModelAndView reg(AdminUser adminuser) {
-		List<AdminUser> l=as.AdminSelect("a");
-		for (AdminUser g : l) {
-			System.out.println(g.getName()+"===");
-		}
-		System.out.println("l"+"222");
-//		as.AdminAdd(adminuser);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/register");
+		if (adminuser.getName() == null || adminuser.getAccount() == null || adminuser.getPassword() == null) {
+			System.out.println("222");
+			mv.addObject("success", "注册成功");
+			return mv;
+		}
+		as.AdminAdd(adminuser);
+		System.out.println("111222");
 		return mv;
 	}
 
@@ -40,8 +40,7 @@ public class AdminAction {
 	public ModelAndView update(AdminUser adminuser) {
 		as.AdminUpdate(adminuser);
 		ModelAndView mv = new ModelAndView();
-		System.out.println("11");
-		mv.setViewName("admin/login");
+		mv.setViewName("admin/register");
 		return mv;
 	}
 
@@ -52,20 +51,24 @@ public class AdminAction {
 		String name = null;
 		String pw = null;
 		List<AdminUser> l = null;
-		if (user.getName() != "" || user.getPassword() != "") {
+		System.out.println("111111" + user.getName());
+		if (user.getName() != "" && user.getName() != null) {
+			System.out.println("111111222");
 			l = as.AdminSelect(user.getName());
 			for (AdminUser a : l) {
 				name = a.getName();
 				pw = a.getPassword();
 			}
-		}
-		if (user.getName().equals(name) && user.getPassword().equals(pw)) {
-			mv.addObject("success", "成功");
-			req.getSession().setAttribute("name", name);
-			req.getSession().setAttribute("admin", l);
-			return mv;
+			if (user.getName().equals(name) && user.getPassword().equals(pw)) {
+				mv.addObject("success", "成功");
+				req.getSession().setAttribute("name", name);
+				req.getSession().setAttribute("admin", l);
+				return mv;
+			} else {
+				mv.addObject("success", "账号或者密码错误！");
+				return mv;
+			}
 		} else {
-			mv.addObject("success", "账号或者密码错误！");
 			return mv;
 		}
 	}
