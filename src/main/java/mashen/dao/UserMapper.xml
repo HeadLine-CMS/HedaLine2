@@ -10,11 +10,29 @@
 		/> <result property="pw" column="PW" jdbcType="VARCHAR" javaType="string" 
 		/> </resultMap> -->
 	<!-- 使用insert标签，插入emp对象 -->
-
+	<!-- 增 -->
 	<insert id="add" parameterType="mashen.model.User">
 		insert into user
-		(headaccount,headpassword,headname,headimg,email,created)
-		values(#{headaccount},#{headpassword},#{headname},#{headimg},#{email},#{created})
+		(headaccount,headpassword,headname,headimg,email)
+		values(#{headaccount},#{headpassword},#{headname},#{headimg},#{email})
 	</insert>
-
+	<!-- 删 -->
+	<delete id="delete" parameterType="mashen.model.User">
+		delete from user where
+		headaccount=#{account}
+	</delete>
+	<!-- 改 -->
+	<update id="update" parameterType="String">
+		update user set
+		headaccount=#{headaccount},headpassword=#{headpassword},headname=#{headname},headimg=#{headimg},email=#{email}
+		where headaccount=#{headaccount}
+	</update>
+	<!-- 用户名查询 -->
+	<select id="selectByName" resultType="mashen.model.User">
+		select headaccount,headpassword,headname,headimg,email from user where headname=#{name}
+	</select>
+	<!-- 查询所有 -->
+	<select id="selectAll" resultType="mashen.model.User">
+		select headaccount,headpassword,headname,headimg,email from user
+	</select>
 </mapper>

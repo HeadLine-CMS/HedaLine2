@@ -10,13 +10,14 @@ public interface IUSerService {
 	public int add(User user);
 
 	// 删除数据
-	public int delete(String accounty);
+	public int delete(String account);
 
 	// 修改数据
 	public int update(User user);
 
 	// 查询数据
-	public List<User> select(String name);
+	public List<User> selectByName(String name);
+	public List<User> selectAll();
 
 	// 注册及登陆验证
 	public boolean check(User user);

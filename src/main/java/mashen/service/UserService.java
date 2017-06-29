@@ -17,9 +17,9 @@ public class UserService implements IUSerService {
 		return dao.add(user);
 	}
 
-	public int delete(String accounty) {
+	public int delete(String account) {
 
-		return dao.delete(accounty);
+		return dao.delete(account);
 	}
 
 	public int update(User user) {
@@ -27,14 +27,19 @@ public class UserService implements IUSerService {
 		return dao.update(user);
 	}
 
-	public List<User> select(String name) {
+	public List<User> selectByName(String name) {
 
-		return dao.select(name);
+		return dao.selectByName(name);
 	}
 
 	public boolean check(User user) {
 
 		return false;
+	}
+
+	public List<User> selectAll() {
+		
+		return dao.selectAll();
 	}
 
 }
