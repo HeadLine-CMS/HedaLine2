@@ -1,5 +1,7 @@
 package mashen.action;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -15,24 +17,54 @@ public class UserAction {
 	@Resource(name = "userService")
 	private UserService service;
 
-	@RequestMapping("/login")
-	public String add() {
-		User user = new User();
-		user.setHeadname("test008");
-		user.setHeadaccount("666");
-		// int a=1/0;
-		service.add(user);
-		return "user/index";
-	}
-
+	// 注册
 	@RequestMapping("/register")
 	public ModelAndView register(User user) {
-		if (user.getHeadname() != null && !user.getHeadname().equals(user.getHeadname())
-				&& user.getHeadpassword() != null && !user.getHeadpassword().equals(user.getHeadpassword())) {
-			service.add(user);
-			
-		}
+		System.out.println("daole");
 		ModelAndView mv = new ModelAndView();
+		if (user.getHeadname() != null && !"".equals(user.getHeadname()) && user.getHeadpassword() != null
+				&& !"".equals(user.getHeadpassword())) {
+			service.add(user);
+			System.out.println(user);
+			mv.addObject("hint", user.getHeadname());
+		} else {
+			mv.addObject("hint", "未成功");
+		}
+		mv.setViewName("success");
 		return mv;
 	}
+
+	// 删除
+	@RequestMapping("/delete")
+	public ModelAndView delete(String account) {
+		System.out.println("daole2");
+		service.delete(account);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("hint", "已删除" + account);
+		mv.setViewName("success");
+		return mv;
+	}
+	//查询
+	@RequestMapping("/select")
+	public ModelAndView select(String name) {
+		System.out.println("daole3");
+		List<User> list;
+		ModelAndView mv = new ModelAndView();
+		if (name != null && !"".equals(name)) {
+			list = service.selectByName(name);
+			for (User user : list) {
+				System.out.println(user);
+			}
+			mv.addObject("list", list);
+		} else {
+			list = service.selectAll();
+			for (User user : list) {
+				System.out.println(user);
+			}
+			mv.addObject("list", list);
+		}
+		mv.setViewName("success");
+		return mv;
+	}
+
 }
