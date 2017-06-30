@@ -50,6 +50,10 @@ public class ArticleService implements InfArticleService {
 	public void updateArticleByCheck(String title){
 		dao.updateArticleByCheck(title);
 	}
+
+	public List<Article> selectAll() {
+		return dao.selectAll();
+	}
 	
 
 }

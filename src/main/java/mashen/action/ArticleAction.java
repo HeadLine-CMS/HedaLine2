@@ -8,9 +8,11 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import mashen.model.Article;
 import mashen.service.InfArticleService;
@@ -117,8 +119,14 @@ public class ArticleAction {
 	/**
 	 * 查询全部
 	 */
-	public String selectAll(HttpServletRequest request){
-		return null;
+	@RequestMapping("/selectAll")
+	public String selectAll(ModelMap map){
+		List<Article> articles = service.selectAll();
+		for (Article article : articles) {
+			System.out.println(article);
+		}
+		map.addAttribute("articles",articles);
+		return "home";
 	}
 	
 }

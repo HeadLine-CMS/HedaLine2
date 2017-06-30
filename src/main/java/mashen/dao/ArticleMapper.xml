@@ -40,5 +40,9 @@
 		update article set
 		checkgg=1 where title=#{title}
 	</update>
-
+	
+	<select id="selectAll" resultType="mashen.model.Article">
+		select * from article
+	</select>
+	
 </mapper>
