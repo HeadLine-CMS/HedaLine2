@@ -32,7 +32,14 @@
 	<bean class="mashen.ex.Ex">
 	</bean>
 
-
+	<!-- 上传用户 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 指定所上传文件的总大小不能超过5000KB。注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 -->
+		<property name="maxUploadSize" value="5000000" />
+		<property name="maxInMemorySize" value="4096" />
+		<property name="defaultEncoding" value="utf-8" />
+	</bean>
 
 	<!-- 异常扫描 -->
 	<!-- <bean class="mashen.ex"></bean> -->

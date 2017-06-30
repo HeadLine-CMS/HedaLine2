@@ -11,7 +11,7 @@ public interface InfArticleDao {
 	
 	public void addArticle(Article article);
 	
-	public void deleteArticle(Article article);
+	public void deleteArticle(int id);
 	
 	public void updateArticle(Article article);
 	

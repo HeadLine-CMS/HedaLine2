@@ -16,7 +16,7 @@
 		(title,content,headName,headImg,titleImg,genre) values(#{title},#{content},#{headName},#{headImg},#{titleImg},#{genre})
 	</insert>
 
-	<delete id="deleteArticle" parameterType="mashen.model.Article">
+	<delete id="deleteArticle" parameterType="int">
 		delete from article
 		where id = #{id}
 	</delete>
@@ -42,7 +42,7 @@
 	</update>
 	
 	<select id="selectAll" resultType="mashen.model.Article">
-		select * from article
+		select * from article order by created desc
 	</select>
 	
 </mapper>

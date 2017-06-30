@@ -3,6 +3,7 @@ package mashen.action;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -82,9 +83,8 @@ public class ArticleAction {
 	 */
 	@RequestMapping("/delete")
 	public String delete(Article article){
-		Article a = new Article();
-		a.setId(article.getId());
-		service.deleteArticle(a);
+		int id = article.getId();
+		service.deleteArticle(id);
 		return "index";
 	}
 	
@@ -120,12 +120,12 @@ public class ArticleAction {
 	 * 查询全部
 	 */
 	@RequestMapping("/selectAll")
-	public String selectAll(ModelMap map){
+	public String selectAll(HttpServletRequest request){
 		List<Article> articles = service.selectAll();
 		for (Article article : articles) {
 			System.out.println(article);
 		}
-		map.addAttribute("articles",articles);
+		request.setAttribute("articles", articles);
 		return "home";
 	}
 	

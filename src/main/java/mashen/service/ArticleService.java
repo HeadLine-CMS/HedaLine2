@@ -22,12 +22,7 @@ public class ArticleService implements InfArticleService {
 		dao.addArticle(article);
 	}
 	
-	/**
-	 * 删除文章
-	 */
-	public void deleteArticle(Article article) {
-		dao.deleteArticle(article);
-	}
+	
 	
 	/**
 	 * 修改文章
@@ -53,6 +48,12 @@ public class ArticleService implements InfArticleService {
 
 	public List<Article> selectAll() {
 		return dao.selectAll();
+	}
+
+
+
+	public void deleteArticle(int id) {
+		dao.deleteArticle(id);
 	}
 	
 
