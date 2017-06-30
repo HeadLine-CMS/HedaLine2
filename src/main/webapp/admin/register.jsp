@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%-- <%
-	String path = request.getContextPath();
-	pageContext.setAttribute("path", path);
-%> --%>
+	<%String path=request.getContextPath();
+pageContext.setAttribute("path",path);
+ %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -227,17 +226,21 @@ input, button {
 					for="tab-1" class="tab">登录</label> <input id="tab-2" type="radio"
 					name="tab" class="sign-up"><label for="tab-2" class="tab">注册</label>
 				<div class="login-form">
-				<div align="center"><font color="red"> ${success}</font></div>
-					<form action="${path}/admin1/login" method="post">
+					<div align="center">
+						<font color="red"> ${success}</font>
+					</div>
+					<form action="${path}/admin1/login">
 						<div class="sign-in-htm">
 							<div class="group">
 								<label for="user" class="label">账号</label> <input id="user"
-									type="text" class="input" name="name">
+									type="text" class="input" name="name" required="required"
+									onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;">
 							</div>
 							<div class="group">
 								<label for="pass" class="label">密码</label> <input
 									name="password" id="pass" type="password" class="input"
-									data-type="password">
+									data-type="password" required="required"
+									onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;">
 							</div>
 
 							<div class="group">
@@ -250,22 +253,20 @@ input, button {
 						<div class="sign-up-htm">
 							<div class="group">
 								<label for="user" class="label">账号</label> <input id="user"
-									type="text" class="input" name="name">
+									type="text" required="required" class="input" name="name"
+									onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;">
 							</div>
 							<div class="group">
 								<label for="pass" class="label">名称</label> <input id="pass"
-									type="text" class="input" name="account">
+									type="text" required="required" class="input" name="account"
+									onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;">
 							</div>
 							<div class="group">
 								<label for="pass" class="label">密码</label> <input
 									name="password" id="pass" type="password" class="input"
-									data-type="password">
+									data-type="password" required="required"
+									onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;">
 							</div>
-							<div class="group">
-								<label for="pass" class="label">确认密码</label> <input id="pass"
-									type="password" class="input" data-type="password">
-							</div>
-
 							<div class="group">
 								<input type="submit" class="button" value="注册">
 							</div>

@@ -22,6 +22,8 @@
 	</update>
 	<select id="AdminSelect" parameterType="java.lang.String" resultType="mashen.model.AdminUser">
 		select * from admin where name=#{name}
-	
+	</select>
+	<select id="AdminSelectName" parameterType="java.lang.String" resultType="mashen.model.AdminUser">
+		select name from admin 
 	</select>
 </mapper>

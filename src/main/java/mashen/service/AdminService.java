@@ -21,4 +21,7 @@ public class AdminService {
 	public List<AdminUser> AdminSelect(String name){
 		return dao.AdminSelect(name);
 	}
+	public List<AdminUser> AdminSelectName(){
+		return dao.AdminSelectName();
+	}
 }
