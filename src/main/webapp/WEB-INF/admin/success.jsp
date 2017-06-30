@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-${hint }大爷你好！
+大爷你好！${hint }
 
 ${list }
 </body>

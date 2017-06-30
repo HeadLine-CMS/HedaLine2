@@ -22,7 +22,7 @@
 		destroy-method="close">
 		<!-- 基本配置 -->
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://119.29.169.182:3306/col" />
+		<property name="jdbcUrl" value="jdbc:mysql://119.29.169.182:3306/col?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="user" value="myproject"></property>
 		<property name="password" value="123456"></property>
 		<!-- 其他配置 -->

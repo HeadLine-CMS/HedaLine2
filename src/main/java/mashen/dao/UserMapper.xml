@@ -17,22 +17,26 @@
 		values(#{headaccount},#{headpassword},#{headname},#{headimg},#{email})
 	</insert>
 	<!-- 删 -->
-	<delete id="delete" parameterType="mashen.model.User">
+	<delete id="delete">
 		delete from user where
 		headaccount=#{account}
 	</delete>
 	<!-- 改 -->
-	<update id="update" parameterType="String">
+	<update id="update" parameterType="mashen.model.User">
 		update user set
 		headaccount=#{headaccount},headpassword=#{headpassword},headname=#{headname},headimg=#{headimg},email=#{email}
-		where headaccount=#{headaccount}
+		where id=#{id}
 	</update>
-	<!-- 用户名查询 -->
+	<!-- 用户账号查询 -->
 	<select id="selectByName" resultType="mashen.model.User">
-		select headaccount,headpassword,headname,headimg,email from user where headname=#{name}
+		select headaccount,headpassword,headname,headimg,email from user where headaccount=#{headaccount}
 	</select>
 	<!-- 查询所有 -->
 	<select id="selectAll" resultType="mashen.model.User">
 		select headaccount,headpassword,headname,headimg,email from user
+	</select>
+	<!-- 登陆&注册校验 -->
+	<select id="check" resultType="mashen.model.User">
+		select headaccount,headpassword,headname,headimg,email from user where headaccount=#{account}
 	</select>
 </mapper>
