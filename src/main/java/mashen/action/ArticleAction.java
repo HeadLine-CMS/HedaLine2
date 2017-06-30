@@ -1,5 +1,7 @@
 package mashen.action;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -7,12 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import mashen.model.Article;
 import mashen.service.InfArticleService;
 
 @Controller
-@RequestMapping("/article")
+@RequestMapping("article")
 public class ArticleAction {
 	
 	@Resource(name="articleService")
@@ -22,18 +26,52 @@ public class ArticleAction {
 	 * 增加文章
 	 * @return
 	 */
-	@RequestMapping("/add")
-	public String add(Article article){
+	@RequestMapping(value="/add",method=RequestMethod.POST)
+	public String add(MultipartFile file,Article article){
+		//调用文件上传
+		String filename = upload(file);
+		System.out.println(filename);
+		
 		Article a = new Article();
 		a.setTitle(article.getTitle());
 		a.setContent(article.getContent());
 		a.setHeadName(article.getHeadName());
-		a.setTitleImg(article.getTitleImg());
+		a.setTitleImg(filename);
 		a.setHeadImg(article.getHeadImg());
 		a.setGenre(article.getGenre());
+		
+		//System.out.println(a.getGenre());
+		
 		service.addArticle(a);
 		return "index";
 	} 
+	
+	/**
+	 * 标题图片保存
+	 * @param file
+	 * @return
+	 */
+	public static String upload(MultipartFile file){
+		System.out.println("开始");
+		//文件保存位置
+		String path = "E://mashen";
+		//获取文件名字
+		String filename = file.getOriginalFilename();
+		//String titleImg = (path+"/"+filename);
+		File targetFile = new File(path,filename);
+		//创建
+		if(!targetFile.exists()){
+			targetFile.mkdirs();
+		}
+		//保存
+		try {
+			file.transferTo(targetFile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return filename;
+	}
 	
 	/**
 	 * 根据id删除文章
@@ -69,12 +107,18 @@ public class ArticleAction {
 	 * @return
 	 */
 	@RequestMapping("/selectByTitle")
-	public String selectByTitle(){
-		List<Article> list = service.selectByTitle("");
-		for (Article article : list) {
-			System.out.println(article);
-		}
+	public String selectByTitle(String title,HttpServletRequest request){
+		List<Article> list = service.selectByTitle(title);
+		request.setAttribute("list", list);
 		return "index";
+	}
+	
+	
+	/**
+	 * 查询全部
+	 */
+	public String selectAll(HttpServletRequest request){
+		return null;
 	}
 	
 }
