@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mashen.dao.ColuDao">
+
+	<!-- 结果集的映射，将数据库中的字段映射到Model对象中 -->
+	<!-- <resultMap id="UserResultMap" type="mashen.admin.model.AdminUser"> <result 
+		property="empno" column="EMPNO" jdbcType="INTEGER" javaType="int" /> <result 
+		property="ename" column="ENAME" jdbcType="VARCHAR" javaType="string" /> <result 
+		property="pw" column="PW" jdbcType="VARCHAR" javaType="string" /> </resultMap> -->
+	<!-- 使用insert标签，插入emp对象 -->
+	
+	<insert id="add" parameterType="mashen.model.Colu">
+		insert into colu (url,img,created) values(#{url},#{img},#{created})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete * from colu where id=#{id}
+	</delete>
+	
+	<update id="update" parameterType="mashen.model.Colu">
+		UPDATE  colu SET url=#{url},img=#{img} WHERE id=#{id}
+	</update>
+	
+	<select id="select" parameterType="int" resultType="mashen.model.Colu">
+		select * from colu where id=#{id}
+	</select>
+	
+	<select id="selectAll" resultType="mashen.model.Colu" resultSets="java.util.List">
+		select * from colu
+	</select>
+
+</mapper>

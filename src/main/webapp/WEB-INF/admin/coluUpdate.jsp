@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,31 +18,32 @@
         <div class="table-responsive" id="table">
             <div class="col-md-8 column">
                 <form class="form-horizontal" role="form" method="post"
-                      action="insertBook.action" enctype="multipart/form-data">
+                      action="updateColu.do" enctype="multipart/form-data">
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">轮播图图片</label>
                         <div class="col-sm-10">
-                            <img src="#" width="200px" height="200px"><br />
-                            <br /> <input type="file" name="bookImg" value="选择图片" />
+                            <img src="${fileUrl }" width="200px" height="200px"><br />
+                            <br /> <input type="file" name="file" value="选择图片" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label  class="col-sm-2 control-label">文字字段</label>
+                        <label  class="col-sm-2 control-label">轮播图ID</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control"
-                                   name="bookBean.book_name" placeholder="请输入文字字段" />
+                                   name="id" value="${colu.id }" required="required" readonly="readonly"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">连接地址</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control"
-                                   name="bookBean.book_name" placeholder="请输入连接地址" />
+                                   name="url" placeholder="请输入连接地址" value="${colu.url }" required="required"/>
                         </div>
                     </div>
+                    
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default">新增轮播图</button>
+                            <button type="submit" class="btn btn-default">修改轮播图</button>
                         </div>
                     </div>
                 </form>

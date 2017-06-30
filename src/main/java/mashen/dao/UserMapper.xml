@@ -37,6 +37,6 @@
 	</select>
 	<!-- 登陆&注册校验 -->
 	<select id="check" resultType="mashen.model.User">
-		select headaccount,headpassword from user where headaccount=#{account}
+		select headaccount,headpassword,headname,headimg,email from user where headaccount=#{account}
 	</select>
 </mapper>

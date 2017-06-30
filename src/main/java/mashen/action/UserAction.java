@@ -3,6 +3,7 @@ package mashen.action;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ public class UserAction {
 	@RequestMapping("/register")
 	public ModelAndView register(User user) {
 		System.out.println("register");
+		System.out.println(user);
 		ModelAndView mv = new ModelAndView();
 		if (user.getHeadaccount() != null && !"".equals(user.getHeadaccount()) && user.getHeadpassword() != null
 				&& !"".equals(user.getHeadpassword())) {
@@ -28,7 +30,7 @@ public class UserAction {
 				mv.addObject("hint", "账号已存在");
 			} else {
 				service.add(user);
-				mv.addObject("hint", user.getHeadaccount()+"注册成功");
+				mv.addObject("hint", user.getHeadname()+"注册成功");
 			}
 		} else {
 			mv.addObject("hint", "请输入账号和密码");
@@ -85,15 +87,16 @@ public class UserAction {
 
 	// 登陆校验
 	@RequestMapping("/login")
-	public ModelAndView login(String account, String password) {
+	public ModelAndView login(HttpServletRequest req,String account, String password) {
 		System.out.println("login");
 		ModelAndView mv = new ModelAndView();
 		if (account != null && !"".equals(account)) {
 			if (service.check(account) != null) {
 				User user = service.check(account);
 				if (user.getHeadaccount().equals(account) && user.getHeadpassword().equals(password)) {
-					System.out.println("122");
-					mv.addObject("hint", "登陆成功");
+					System.out.println(user);
+					mv.addObject("hint", user.getHeadname()+"登陆成功");
+					req.getSession().setAttribute("user", user);
 				} else {
 					mv.addObject("hint", "密码错误");
 				}
