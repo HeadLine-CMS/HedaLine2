@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,13 +27,28 @@ public class AdminAction {
 	public ModelAndView reg(AdminUser adminuser) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/register");
-		if (adminuser.getName() == null || adminuser.getAccount() == null || adminuser.getPassword() == null) {
-			System.out.println("222");
+		System.out.println(adminuser.getName() + adminuser.getAccount() + adminuser.getPassword());
+		if (adminuser.getName() == "" || adminuser.getAccount() == "" || adminuser.getPassword() == ""
+				|| adminuser.getPassword().trim().equals("") || adminuser.getName().trim().equals("")
+				|| adminuser.getAccount().trim().equals("")) {
+			mv.addObject("success", "注册失败");
+			return mv;
+		}
+		List<AdminUser> l = as.AdminSelectName();
+		boolean so = false;
+		for (AdminUser ll : l) {
+			System.out.println(ll.getName()+"|||"+adminuser.getName());
+			if (ll.getName().equals(adminuser.getName())) {
+				so=true;
+			}
+		}
+		System.out.println(so);
+		if(!so){
+			as.AdminAdd(adminuser);
 			mv.addObject("success", "注册成功");
 			return mv;
 		}
-		as.AdminAdd(adminuser);
-		System.out.println("111222");
+		mv.addObject("success", "账号存在");
 		return mv;
 	}
 
@@ -47,25 +63,27 @@ public class AdminAction {
 	@RequestMapping("/login")
 	public ModelAndView login(HttpServletRequest req, AdminUser user) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("admin/register");
+		
 		String name = null;
 		String pw = null;
+		String account=null;
 		List<AdminUser> l = null;
-		System.out.println("111111" + user.getName());
 		if (user.getName() != "" && user.getName() != null) {
-			System.out.println("111111222");
 			l = as.AdminSelect(user.getName());
 			for (AdminUser a : l) {
 				name = a.getName();
 				pw = a.getPassword();
+				account=a.getAccount();
 			}
 			if (user.getName().equals(name) && user.getPassword().equals(pw)) {
 				mv.addObject("success", "成功");
-				req.getSession().setAttribute("name", name);
-				req.getSession().setAttribute("admin", l);
+				req.getSession().setAttribute("account",account);
+				System.out.println(account+"|");
+				mv.setViewName("admin/index");
 				return mv;
 			} else {
 				mv.addObject("success", "账号或者密码错误！");
+				mv.setViewName("admin/register");
 				return mv;
 			}
 		} else {

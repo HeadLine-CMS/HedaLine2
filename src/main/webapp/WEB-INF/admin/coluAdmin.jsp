@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,8 +85,8 @@
 
                             </tr>
                             </thead>
-
                             <tbody>
+							<c:forEach items="${coluList}" var="c">
                             <tr>
                                 <td class="center">
                                     <label>
@@ -94,27 +96,24 @@
                                 </td>
 
                                 <td>
-                                    <a href="#">ace.com</a>
+                                    ${c.id}
                                 </td>
                                 <td>
-                                    <a href="#">ace.com</a>
+                                    ${c.url }
                                 </td>
-
-
-
                                 <td class="hidden-480">
-                                    <span class="label label-sm label-warning">Expiring</span>
+                                    ${c.created }
                                 </td>
 
                                 <td>
                                     <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
 
-                                        <a href="coluUpdate.html">
+                                        <a href="/forUpdate.do">
                                         <button class="btn btn-xs btn-info">
                                             <i class="icon-edit bigger-120"></i>
                                         </button>
                                         </a>
-                                        <a href="#">
+                                        <a href="">
                                         <button class="btn btn-xs btn-danger">
                                             <i class="icon-trash bigger-120"></i>
                                         </button>
@@ -157,7 +156,7 @@
                                     </div>
                                 </td>
                             </tr>
-
+							</c:forEach>
                             </tbody>
                         </table>
                     </div><!-- /.table-responsive -->

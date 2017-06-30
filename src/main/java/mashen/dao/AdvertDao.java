@@ -1,12 +1,14 @@
 package mashen.dao;
 
 
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import mashen.model.Advert;
 
 @Repository("advertDao")
 public interface AdvertDao {
+	
 	public void add(Advert advert);
 	
 	public void delete(int id);
