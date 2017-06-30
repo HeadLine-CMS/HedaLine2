@@ -19,7 +19,7 @@
 	</delete>
 	
 	<update id="update" parameterType="mashen.model.Colu">
-		UPDATE  colu SET url=#{url},img=#{img} WHERE id={id}
+		UPDATE  colu SET url=#{url},img=#{img} WHERE id=#{id}
 	</update>
 	
 	<select id="select" parameterType="int" resultType="mashen.model.Colu">
