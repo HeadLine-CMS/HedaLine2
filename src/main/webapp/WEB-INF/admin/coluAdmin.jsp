@@ -109,7 +109,11 @@
                                     <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         <a href="forUpdateColu.do?id=${c.id }">
+=======
+                                        <a href="/forUpdate.do">
+>>>>>>> branch 'master' of https://github.com/HeadLine-CMS/HedaLine2.git
 =======
                                         <a href="/forUpdate.do">
 >>>>>>> branch 'master' of https://github.com/HeadLine-CMS/HedaLine2.git

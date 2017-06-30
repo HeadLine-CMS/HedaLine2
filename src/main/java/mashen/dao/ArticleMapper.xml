@@ -13,7 +13,7 @@
 
 	<insert id="addArticle" parameterType="mashen.model.Article">
 		insert into article
-		(title,content) values(#{title},#{content})
+		(title,content,headName,headImg,titleImg,genre) values(#{title},#{content},#{headName},#{headImg},#{titleImg},#{genre})
 	</insert>
 
 	<delete id="deleteArticle" parameterType="mashen.model.Article">
